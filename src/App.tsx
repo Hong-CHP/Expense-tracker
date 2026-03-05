@@ -32,7 +32,7 @@ function App() {
       setShowSearchResult(false)
       return
     } 
-    setShowSearchResult(show=>!show)
+    setShowSearchResult(true)
     setKeyWord(newkeyWord)
   }
   
