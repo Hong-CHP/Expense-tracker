@@ -1,8 +1,10 @@
-function NavBar() {
+import { useState } from "react"
+
+function NavBar({onShowSearchResult} : {onShowSearchResult : (keyWord: string)=>void}) {
   return (
 	<nav>
 		<Logo />
-		<Search />
+		<Search onShowSearchResult={onShowSearchResult}/>
 		<Filter />
 	</nav>
   )
@@ -18,18 +20,20 @@ function Logo() {
 	)
 }
 
-function Search() {
+function Search({onShowSearchResult} : {onShowSearchResult : (keyWord: string)=>void}) {
+	const [content, setContent] = useState("")
+
 	return (
 		<div className="search">
-			<input className="bar" type="text" placeholder="Search history..."/>
-			<button className="button">Search</button>
+			<input type="text" placeholder="Search history..." value={content} onChange={(e)=>setContent(e.target.value)}/>
+			<button onClick={()=>onShowSearchResult(content)}>Search</button>
 		</div>
 	)
 }
 
 function Filter() {
 	return (
-		<div>
+		<div className="search">
 			<select>
 				<option value="By date">By date</option>
 				<option value="By amounts">By amounts</option>

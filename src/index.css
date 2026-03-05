@@ -31,16 +31,10 @@ nav {
   margin-bottom: 50px;
 }
 
-.search .bar {
-  height: 30px;
-  font-size: 1.8rem;
-  padding: 0 15px;
-  margin-right: 10px;
-  border-radius: 10px;
-  border: none;
-}
-
-.search .button {
+.search input,
+.search button,
+.search select
+{
   height: 30px;
   font-size: 1.8rem;
   padding: 0 15px;
@@ -63,6 +57,32 @@ nav {
   }
 }
 
+.list, .add {
+  height: auto;
+  padding-bottom: 20px;
+}
+
+.add form {
+  margin: auto;
+  padding: 10px;
+  max-width: 80%;
+
+  div {
+    margin-bottom: 10px;
+  }
+  
+  div input {
+    height: 30px;
+    width: 100%;
+    font-size: 1.8rem;
+    padding: 10 15px;
+    margin-top: 4px;
+    margin-right: 10px;
+    border-radius: 10px;
+    border: none; 
+  }
+}
+
 .summary {
   div {
     display: flex;
@@ -72,9 +92,48 @@ nav {
   }
 }
 
-.list {
+.title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 20px;
 
+  button {
+    all: unset;
+    cursor: pointer;
+    max-height: 40px;
+    max-width: 40px;
+    font-size: 3.5rem;
+  }
 }
 
-.add-box {
+.container {
+  max-width: 80%;
+  margin: auto;
+  padding: 10px;
+}
+
+.first-line,
+.transction-row {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) 1fr 1fr 1fr;
+  gap: 10px;
+}
+
+.first-line div,
+.transction-row div {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .first-line {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+
+  .first-line div:first-child {
+    display: none;
+  }
 }
